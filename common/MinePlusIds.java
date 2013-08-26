@@ -23,6 +23,7 @@ public class MinePlusIds {
 	public static int diamondDustID;
 	public static int copperDustID;
 	public static int tinDustID;
+	public static int bronzeDustID;
 	public static int bluriteDustID;
 	public static int daeyaltDustID;
 	public static int silverDustID;
@@ -72,12 +73,13 @@ public class MinePlusIds {
 		diamondDustID = config.get("Items", "Diamond Dust", 5014).getInt();
 		copperDustID = config.get("Items", "Copper Dust", 5015).getInt();
 		tinDustID = config.get("Items", "Tin Dust", 5016).getInt();
-		bluriteDustID = config.get("Items", "Bluerite Dust", 5017).getInt();
-		daeyaltDustID = config.get("Items", "Daeyalt", 5018).getInt();
-		silverDustID = config.get("Items", "Silver Dust", 5019).getInt();
-		mithrilDustID = config.get("Items", "Mithril", 5020).getInt();
-		adamaniteDustID = config.get("Items", "Adamanite Dust", 5021).getInt();
-		runiteDustID = config.get("Items", "Runite Dust", 5022).getInt();
+		bronzeDustID = config.get("Items", "Bronze Dust", 5017).getInt();
+		bluriteDustID = config.get("Items", "Bluerite Dust", 5018).getInt();
+		daeyaltDustID = config.get("Items", "Daeyalt", 5019).getInt();
+		silverDustID = config.get("Items", "Silver Dust", 5020).getInt();
+		mithrilDustID = config.get("Items", "Mithril", 5021).getInt();
+		adamaniteDustID = config.get("Items", "Adamanite Dust", 5022).getInt();
+		runiteDustID = config.get("Items", "Runite Dust", 5023).getInt();
 
 		adamaniteOreID = config.get("Blocks", "Adamanite Ore", 500).getInt();
 		bluriteID = config.get("Blocks", "Blurite Ore", 501).getInt();

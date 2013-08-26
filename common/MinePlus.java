@@ -67,7 +67,7 @@ public class MinePlus {
 	public static Item mithrilIngot;
 	public static Item lunarIngot;
 	public static Item adamantIngot;
-	public static Item runeiteIngot;
+	public static Item runiteIngot;
 	public static Item rubyGem;
 	public static Item sapphireGem;
 	public static Item emeraldGem;
@@ -77,6 +77,7 @@ public class MinePlus {
 	public static Item diamondDust;
 	public static Item copperDust;
 	public static Item tinDust;
+	public static Item bronzeDust;
 	public static Item bluriteDust;
 	public static Item daeyaltDust;
 	public static Item silverDust;
@@ -116,7 +117,7 @@ public class MinePlus {
 		mithrilIngot = new MinePlusItem(MinePlusIds.mithrilIngotID).setUnlocalizedName("mithrilIngot");
 		lunarIngot = new MinePlusItem(MinePlusIds.lunarIngotID).setUnlocalizedName("lunarIngot");
 		adamantIngot = new MinePlusItem(MinePlusIds.adamantIngotID).setUnlocalizedName("adamantIngot");
-		runeiteIngot = new MinePlusItem(MinePlusIds.runiteIngotID).setUnlocalizedName("runeiteIngot");
+		runiteIngot = new MinePlusItem(MinePlusIds.runiteIngotID).setUnlocalizedName("runeiteIngot");
 		rubyGem = new MinePlusItem(MinePlusIds.rubyGemID).setUnlocalizedName("rubyGem");
 		sapphireGem = new MinePlusItem(MinePlusIds.sapphireGemID).setUnlocalizedName("sapphireGem");
 		emeraldGem = new MinePlusItem(MinePlusIds.emeraldGemID).setUnlocalizedName("emeraldGem");
@@ -126,6 +127,7 @@ public class MinePlus {
 		diamondDust = new MinePlusItem(MinePlusIds.diamondDustID).setUnlocalizedName("diamondDust");
 		copperDust = new MinePlusItem(MinePlusIds.copperDustID).setUnlocalizedName("copperDust");
 		tinDust = new MinePlusItem(MinePlusIds.tinDustID).setUnlocalizedName("tinDust");
+		bronzeDust = new MinePlusItem(MinePlusIds.bronzeDustID).setUnlocalizedName("bronzeDust");
 		bluriteDust = new MinePlusItem(MinePlusIds.bluriteDustID).setUnlocalizedName("bluriteDust");
 		daeyaltDust = new MinePlusItem(MinePlusIds.daeyaltDustID).setUnlocalizedName("daeyaltDust");
 		silverDust = new MinePlusItem(MinePlusIds.silverDustID).setUnlocalizedName("silverDust");
@@ -155,6 +157,10 @@ public class MinePlus {
 		GameRegistry.registerItem(bluriteIngot, modid + bluriteIngot.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(silverIngot, modid + silverIngot.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(steelIngot, modid + steelIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(mithrilIngot, modid + mithrilIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(lunarIngot, modid + lunarIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(adamantIngot, modid + adamantIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(runiteIngot, modid + runiteIngot.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(rubyGem, modid + rubyGem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(sapphireGem, modid + sapphireGem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(emeraldGem, modid + emeraldGem.getUnlocalizedName().substring(5));
@@ -162,7 +168,21 @@ public class MinePlus {
 		GameRegistry.registerItem(ironDust, modid + ironDust.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(goldDust, modid + goldDust.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(diamondDust, modid + diamondDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(copperDust, modid + copperDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(tinDust, modid + tinDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(bronzeDust, modid + bronzeDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(bluriteDust, modid + bluriteDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(daeyaltDust, modid + daeyaltDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(silverDust, modid + silverDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(mithrilDust, modid + mithrilDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(adamaniteDust, modid + adamaniteDust.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(runiteDust, modid + runiteDust.getUnlocalizedName().substring(5));
 
+		GameRegistry.registerWorldGenerator(new MinePlusOreGen());
+		
+		
+		
+		
 		GameRegistry.registerBlock(grinder, modid + grinder.getUnlocalizedName().substring(5));
 
 		GameRegistry.registerTileEntity(TileEntityGrinder.class, "tileEntityGrinder");
@@ -170,8 +190,7 @@ public class MinePlus {
 		// RenderingRegistry.registerBlockHandler(2105, Render.INSTANCE);
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandlerGrinder());
 
-		// GameRegistry.addShapelessRecipe(new ItemStack(bluriteDust), new Object[] { new ItemStack(Item.diamond), new ItemStack(Block.stone), new
-		// ItemStack(Item.dyePowder, 1, 15) });
+		GameRegistry.addShapelessRecipe(new ItemStack(bronzeDust), new Object[] { new ItemStack(copperDust), new ItemStack(tinDust) });
 
 		// FurnaceRecipes.smelting().addSmelting(Item.beefCooked.itemID, 0, new ItemStack(Item.diamond), 0.1F);
 
@@ -193,9 +212,14 @@ public class MinePlus {
 		LanguageRegistry.addName(adamaniteOre, "Adamanite Ore");
 		LanguageRegistry.addName(runiteOre, "Runite Ore");
 
-		LanguageRegistry.addName(bronzeIngot, "Copper Ingot");
-		LanguageRegistry.addName(bluriteIngot, "Tin Ingot");
+		LanguageRegistry.addName(bronzeIngot, "Bronze Ingot");
+		LanguageRegistry.addName(bluriteIngot, "Blurite Ingot");
+		LanguageRegistry.addName(silverIngot, "Silver Ingot");
 		LanguageRegistry.addName(steelIngot, "Steel Ingot");
+		LanguageRegistry.addName(mithrilIngot, "Mithril Ingot");
+		LanguageRegistry.addName(lunarIngot, "Lunar Ingot");
+		LanguageRegistry.addName(adamantIngot, "Adamant Ingot");
+		LanguageRegistry.addName(runiteIngot, "Runeite Ingot");
 		LanguageRegistry.addName(rubyGem, "Ruby");
 		LanguageRegistry.addName(sapphireGem, "Sapphire");
 		LanguageRegistry.addName(emeraldGem, "Emerald");
@@ -203,6 +227,15 @@ public class MinePlus {
 		LanguageRegistry.addName(ironDust, "Iron Dust");
 		LanguageRegistry.addName(goldDust, "Gold Dust");
 		LanguageRegistry.addName(diamondDust, "Diamond Dust");
+		LanguageRegistry.addName(copperDust, "Copper Dust");
+		LanguageRegistry.addName(tinDust, "Tin Dust");
+		LanguageRegistry.addName(bronzeDust, "Bronze Dust");
+		LanguageRegistry.addName(bluriteDust, "Blurite Dust");
+		LanguageRegistry.addName(daeyaltDust, "Daeyalt Dust");
+		LanguageRegistry.addName(silverDust, "Silver Dust");
+		LanguageRegistry.addName(mithrilDust, "Mithril Dust");
+		LanguageRegistry.addName(adamaniteDust, "Adamant Dust");
+		LanguageRegistry.addName(runiteDust, "Runite Dust");
 
 		LanguageRegistry.addName(grinder, "Grinder");
 
